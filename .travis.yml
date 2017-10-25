@@ -29,15 +29,10 @@ before_script:
   - sh -c "if [ '$DB' = 'pgsql' ]; then sh ./eccube_install.sh appveyor; fi"
   - cp tests/require.php.jenkins tests/require.php
   - cat ./data/config/config.php
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - php -S localhost:8085 -t html/ &
-  - php data/vendor/bin/codecept build
 
 script:
   - mkdir -p reports/coverage
   - php data/vendor/bin/phpunit -c phpunit.xml.dist
-  - php data/vendor/bin/codecept run --env travis --steps
 
 after_script:
   - php data/vendor/bin/coveralls -v

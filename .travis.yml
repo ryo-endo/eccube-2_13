@@ -3,7 +3,7 @@
 language: php
 sudo: required
 php:
-  - 5.3.3
+#  - 5.3.3 tavis-ci problem (https://github.com/travis-ci/travis-ci/issues/8639)
   - 5.3
   - 5.4
   - 5.5

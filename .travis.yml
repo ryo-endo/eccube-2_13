@@ -32,7 +32,7 @@ before_script:
 
 script:
   - mkdir -p reports/coverage
-  - php data/vendor/bin/phpunit -c phpunit.xml.dist
+  - phpunit -c phpunit.xml.dist
 
 after_script:
   - php data/vendor/bin/coveralls -v
